@@ -2,12 +2,13 @@
 import { type NextPage } from "next";
 
 import { signIn, signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 import peepImg from "../images/peeps.jpeg";
 
 import { api } from "../utils/api";
 
 const Home: NextPage = () => {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  // const hello = api.example.hello.useQuery({ text: "from tRPC" });
 
   return (
     <>
@@ -25,7 +26,9 @@ const Home: NextPage = () => {
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
               et a id nisi.
             </p>
-            <button className="btn-primary btn">Get Started</button>
+            <Link href="/dashboard">
+              <button className="btn-primary btn">Get Started</button>
+            </Link>
           </div>
         </div>
       </div>

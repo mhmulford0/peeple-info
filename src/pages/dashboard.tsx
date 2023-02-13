@@ -1,3 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
+import { useRouter } from "next/router";
+
 import peepleDashboardData from "../utils/dashboardPlaceholderData.json";
 
 const formatter = new Intl.NumberFormat("en-US", {
@@ -6,6 +9,7 @@ const formatter = new Intl.NumberFormat("en-US", {
 });
 
 function Table() {
+  const router = useRouter();
   return (
     <div className="w-full overflow-x-auto">
       <table className="table w-full">
@@ -55,7 +59,14 @@ function Table() {
                 </td>
                 <td>{formatter.format(person.revenueProduced)}</td>
                 <th>
-                  <button className="btn-info btn-xs btn">details</button>
+                  <button
+                    className="btn-info btn-xs btn"
+                    onClick={() => {
+                      void router.push(`/recruiter/${person.id}`);
+                    }}
+                  >
+                    details
+                  </button>
                 </th>
               </tr>
             );
