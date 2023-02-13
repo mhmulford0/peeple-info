@@ -6,7 +6,7 @@ export default function Navbar() {
     <div className="navbar fixed top-0 bg-base-100">
       <div className="navbar-start">
         <ul className="menu rounded-box menu-horizontal bg-base-100 p-2">
-          <li>
+          <li className="mr-3">
             <Link href={"/"}>
               <span>Home</span>
             </Link>
@@ -36,7 +36,7 @@ export default function Navbar() {
         <a className="btn-ghost btn text-xl normal-case">PeepleDAO</a>
       </div>
       <div className="navbar-end">
-        <ConnectWalletBtn />
+        {/* <ConnectWalletBtn /> */}
       </div>
     </div>
   );

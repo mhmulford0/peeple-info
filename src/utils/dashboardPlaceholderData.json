@@ -1,0 +1,38 @@
+[
+  {
+    "id": "e01f72aba227",
+    "name": "Alec",
+    "placementsMade": 39,
+    "accountsUnderMgmt": 124,
+    "revenueProduced": 1052000,
+    "activeCandidates": 312,
+    "introductionsMade": 45
+  },
+  {
+    "id": "3d56a678f3cf",
+    "name": "Alexis P",
+    "placementsMade": 42,
+    "accountsUnderMgmt": 89,
+    "revenueProduced": 728000,
+    "activeCandidates": 187,
+    "introductionsMade": 30
+  },
+  {
+    "id": "1ce517b22b2e",
+    "name": "Manny",
+    "placementsMade": 100,
+    "accountsUnderMgmt": 162,
+    "revenueProduced": 1285000,
+    "activeCandidates": 433,
+    "introductionsMade": 62
+  },
+  {
+    "id": "9087937f794c",
+    "name": "Alexis B",
+    "placementsMade": 40,
+    "accountsUnderMgmt": 78,
+    "revenueProduced": 642000,
+    "activeCandidates": 152,
+    "introductionsMade": 28
+  }
+]

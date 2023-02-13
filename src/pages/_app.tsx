@@ -4,15 +4,18 @@ import { SessionProvider } from "next-auth/react";
 
 import "@rainbow-me/rainbowkit/styles.css";
 
-import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import {
+  getDefaultWallets,
+  RainbowKitProvider,
+  darkTheme,
+} from "@rainbow-me/rainbowkit";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
 import { optimism } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 
-
 const { chains, provider } = configureChains(
   [optimism],
-  [alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_ID })]
+  [alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_ID || "" })]
 );
 
 const { connectors } = getDefaultWallets({
@@ -21,7 +24,7 @@ const { connectors } = getDefaultWallets({
 });
 
 const wagmiClient = createClient({
-  autoConnect: true,
+  autoConnect: false,
   connectors,
   provider,
 });
@@ -29,6 +32,7 @@ const wagmiClient = createClient({
 import { api } from "../utils/api";
 
 import "../styles/globals.css";
+import Layout from "../components/Layout";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -36,11 +40,13 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains}>
-        <SessionProvider session={session}>
-          <Component {...pageProps} />
-        </SessionProvider>
-      </RainbowKitProvider>
+      <SessionProvider session={session}>
+        <RainbowKitProvider chains={chains} theme={darkTheme({})}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </RainbowKitProvider>
+      </SessionProvider>
     </WagmiConfig>
   );
 };
